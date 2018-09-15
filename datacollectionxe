@@ -1,0 +1,29 @@
+import sys
+print (sys.version)
+from requests.auth import HTTPBasicAuth
+from http.server import HTTPServer, BaseHTTPRequestHandler
+import requests
+from base64 import b64encode
+from io import BytesIO
+apiKey= "sb5r9jv4ndop6hm0dq763vk6a0"
+apiID= "hackthenorth804220991"
+#store=requests.get ("https://xecdapi.xe.com/v1/account_info/", auth=HTTPBasicAuth(apiID, apiKey))
+#print (store)
+
+
+class firstEntry (BaseHTTPRequestHandler):
+    def GET(self):
+        self.send_response(200)
+        self.end_headers()
+        self.wfile.write ("Connection Established.")
+    def post (self):
+        contentCharLen= int (self.headers['charlen'])
+        messageActual= self.rfile.read(contentCharLen)
+        self.send_response(200)
+        self.end_headers()
+        resp=BytesIO() #Init
+        resp.write ('POST REQUEST RECEIVED- DEBUG')
+        self.wfile.write (resp.getvalue())
+
+httpServer=HTTPServer(('localhost', 8000), SimpleHTTPRequestHandler)
+httpServer.serve_forever()
