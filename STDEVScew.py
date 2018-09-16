@@ -4,14 +4,25 @@ from sklearn.metrics import accuracy_score
 import pandas as pandas
 import math
 import requests
-import datetime
+import sys
+from requests.auth import HTTPBasicAuth
+from http.server import HTTPServer, SimpleHTTPRequestHandler
+import socketserver
+from base64 import b64encode
+from io import BytesIO
+print (sys.version)
+apiKey= "sb5r9jv4ndop6hm0dq763vk6a0"
+apiID= "hackthenorth804220991"
+#store=requests.get ("https://xecdapi.xe.com/v1/account_info/", auth=HTTPBasicAuth(apiID, apiKey))
+#print (store)
 
-def getTime (cycleTime):
-    cycleTime=datetime.time ()
-    return cycleTime
 
+# httpServer=socketserver.TCPServer(('localhost', 8000), SimpleHTTPRequestHandler)
+# #httpServer=HTTPServer(('localhost', 8000), firstEntry)
+# httpServer.serve_forever()
 def main():
     data = pandas.read_csv(input())
+    # "C:/users/Victor/Desktop/hehexd.csv"
     read_x = data.iloc[:,1]
 
     array = []
@@ -39,14 +50,6 @@ def main():
     print(len(array))
     print(len(delta))
 
-    def updateScoreSpreadsheet():
-        apiKey="sb5r9jv4ndop6hm0dq763vk6a0"
-        apiID= "hackthenorth804220991"
-        
-        #store=requests.get ("https://xecdapi.xe.com/v1/account_info/")
-
-
-
     delta = insertion(delta)
 
     medhigh = delta[math.ceil(len(delta)/2)]
@@ -60,23 +63,48 @@ def main():
     #print(len(delta))
 
     temp = 0
-    # for i in range (0, len(delta)-1):
-        # temp += delta[i]
+    for i in range (0, len(delta)-1):
+        temp += delta[i]
         # print(temp)
     mean = temp/len(delta)
 
     mean2 = (array[len(array)-1]-array[0])/len(array)
 
-    print(mean, mean2)
+    # print(mean, mean2)
     temp = 0
 
     for i in range (0, len(delta)-1):
         temp = (delta[i] - mean)**2
             
-    sigma = math.sqrt(temp/len(delta))
-    print(mean, median, sigma)
-    skew = (3*(mean - median))/sigma
-    print(skew) 
+    stdev = math.sqrt(temp/len(delta))
+    # print(mean, median, stdev)
+    skew = (3*(mean - median))/stdev
+    return (skew)
 
-while True:
-    print (str(datetime.time.second))
+class firstEntry (SimpleHTTPRequestHandler):
+    def do_GET(self):
+        print ("GET HIT")
+        self.send_response(200)
+        self.end_headers()
+        self.wfile.write ("Connection Established.")
+    def do_POST (self):
+        calc = main()
+        if calc > 0:
+            print("positive")
+        if calc < 0: 
+            print("negative")
+
+        else: 
+            "No Change"
+        contentCharLen= int (self.headers['charlen'])
+        messageActual= self.rfile.read(contentCharLen)
+        self.send_response(200)
+        self.end_headers()
+        resp=BytesIO() #Init
+        resp.write ('POST REQUEST RECEIVED- DEBUG')
+        self.wfile.write (resp.getvalue())
+        print ("POST HIT")
+
+httpServer=socketserver.TCPServer(('localhost', 8000), SimpleHTTPRequestHandler)
+#httpServer=HTTPServer(('localhost', 8000), firstEntry)
+httpServer.serve_forever()
