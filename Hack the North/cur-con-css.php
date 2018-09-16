@@ -1,0 +1,177 @@
+<?php
+	header("Content-type: text/css; charset: UTF-8");
+?>
+
+#cur-con-holder{
+	width:90vw;
+	height:auto;
+	position:absolute;
+	top:88px;
+	padding:0;
+	margin:5vw;
+}
+.currency-converter{
+	width:inherit;
+	background-color:rgba(18,60,80,1.00);
+	background-image: linear-gradient(to bottom right,rgba(18,60,80,1.00),rgba(64,48,90,1.00) );
+	height:25vh;
+	position:relative;
+	border-radius:25px;
+	margin-bottom:64px;
+	z-index: -1;
+}
+.currency-converter>img{
+	width:24px;
+	height:20px;
+	position:absolute;
+	right:12px;
+	top:12px;
+}
+.currency-converter>img:hover{
+	cursor:pointer;
+}
+#drop-menu{
+	z-index:1000;
+	position:absolute;
+	margin:20px;
+}
+#drop-menu>form>select{
+	height:46px;
+	width:72px;
+	background-color: rgba(18,60,80,1.00);
+	color:#fb1;
+	border:solid;
+	border-width:2px;
+	border-color:#ffffff;
+	border-radius:5px;
+	padding:0 16px;
+}
+select {
+    -moz-appearance:none; /* Firefox */
+    -webkit-appearance:none; /* Safari and Chrome */
+    appearance:none;
+}
+#drop-menu>form>select>option{
+	color:#fb1;
+	font-size:10px;
+}
+.flag{
+	width:5vw;
+	height:inherit;
+	display:inline-block;
+}
+.country{
+	display:inline-block;
+	width:35vw;
+	height:inherit;
+	background-color:rgba(0,0,0,0.10);
+	text-align:center;
+}
+.country>div{
+	width:inherit;
+	height:inherit;
+	position:absolute;
+}
+.country>div>h1{
+	font-size:3em;
+	margin-top:24px;
+	margin-bottom:0;
+	color:#fb1;
+}
+.country>div>hr{
+	background-color:#ffffff;
+	width:80%;
+	display:inline-block;
+}
+.country>div>h3{
+	color:#fb1;
+}
+.worth-val{
+	width:50vw;
+	height:inherit;
+	background-color:rgba(255,255,255,0.10);
+	display:inline-block;
+	position:absolute;
+	text-align:center;
+}
+.worth-val-num{
+	font-size:5em;
+	margin:24px;
+	color:#fb1;
+}
+#addNew{
+	width:32px;
+	height:32px;
+	border-radius:32px;
+	background-color:rgba(18,60,80,1.00);
+	position:fixed;
+	border-color:#000;
+	border-width:medium;
+	bottom:50px;
+	right:24px;
+	padding:5px;
+}
+#addNew:hover{
+	cursor:pointer;
+}
+#addNew>img{
+	width:inherit;
+	height:inherit;
+}
+#dimmer{
+	position:fixed;
+	background-color:rgba(0,0,0,0.5);
+	z-index:9998;
+	width:100%;
+	height:100%;
+	display:none;
+	
+}	
+#CurrencyId{
+	position:fixed;
+	bottom:150px;
+	right:50px;
+	width:200px;
+	height:50px;
+	padding:16px;
+	background-color:rgba(18,60,80,1.00);
+	border-style:solid;
+	border-color:#fb1;
+	z-index:9999;
+	font-size:1.7em;
+	color:#fb1;
+}
+#selectLoc{
+	z-index:9999;
+	display:none;
+}
+
+
+::placeholder{
+	color:#fb1;
+	opacity:1;
+	font-family: Gill Sans, Gill Sans MT, Myriad Pro, DejaVu Sans Condensed, Helvetica, Arial," sans-serif";
+}
+:-ms-input-placeholder{
+	color:#fb1;
+}
+::-ms-input-placeholder{
+	color:#fb1;
+}
+#submit{
+	width:150px;
+	height:75px;
+	bottom:25px;
+	right:100px;
+	position:fixed;
+	padding:16px;
+	background-color:rgba(18,60,80,1.00);
+	border-style:solid;
+	border-color:#fb1;
+	z-index:9999;
+	font-size:1.7em;
+	color:#fb1;
+}
+#submit:hover{
+	cursor:pointer;
+}

@@ -1,0 +1,111 @@
+@charset "utf-8";
+
+#slide{
+	position:static;
+	wodth: 100%;
+	margin: 0;
+}
+.slidebox{
+	top: 105px;
+	position: relative;
+}
+.slideimg{
+	width: 100%;
+	height: 33.33vw;
+	overflow: hidden;
+	position: absolute;
+	right: 0px;
+}
+.slideimg:hover{
+	cursor: pointer;
+}
+.slide > a{
+	position: relative;
+	z-index:60;
+	height:100%;
+	background-repeat: no-repeat;
+	text-indent:-9999em;
+	overflow:hidden;
+	background-image:url(resources/img/pointer.png);
+	cursor: pointer;
+	width:60px;
+	margin:0;
+	padding:0;
+	background-color: transparent;
+	border-color: transparent;
+}	
+#img0{
+	z-index: -1;
+	object-fit: cover;	
+}
+#img1{
+	z-index: -1;
+	display: none;
+	object-fit: cover;	
+}
+#img2{
+	z-index: -1;
+	display: none;
+	object-fit: cover;	
+}
+#img3{
+	z-index: -1;
+	display: none;	
+	object-fit: cover;	
+}
+#img4{
+	z-index: -1;
+	display: none;
+	object-fit: cover;	
+}
+
+/*-------------------------------------------------------*/
+
+#button-prev{
+	height: 36.5vw;
+	float: left;
+	left:40px;
+	background-position:18px 50%;
+}
+#button-next{
+	height: 36.5vw;
+	float: right;
+	right:40px;
+	background-position:-38px 50%;
+}
+.pager{
+	position: absolute;
+	width: 100%;
+	z-index: 60;
+	bottom: 10px;
+	text-align: center;
+	top: 31.33vw;
+	
+}
+.pager-item{
+	position: relative;
+	display: inline-block;
+	text-align: center;
+	width: 10px;
+	height: 10px;
+	border-radius: 6px;
+	margin: 0 5px;
+	text-indent: -9999px;
+	overflow: hidden;
+	border: 1px solid;
+	border-color:#c1c1c1;
+	padding: 0;
+	background-color: transparent;
+	cursor: pointer;
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+#btn0{
+	background-color: #c1c1c1;
+}
+

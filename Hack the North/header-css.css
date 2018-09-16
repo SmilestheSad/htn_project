@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+#nav{
+	z-index: 999999;
+}
+#nav-menu{
+	width:100%;
+	height:88px;
+	position:fixed;
+	top:0;
+	left:0;
+	background-color:rgba(18,60,80,1.00);
+	
+	
+}
+#nav-menu>ul{
+	text-align: right;
+	margin:24px;
+}
+#nav-menu>ul>li{
+	list-style: none;
+	font-size:24px;
+	font-weight: 700;
+	display: inline-block;
+	margin:8px;
+	font-family: Gill Sans, Gill Sans MT, Myriad Pro, DejaVu Sans Condensed, Helvetica, Arial," sans-serif";
+}
+#nav-menu>ul>li:hover{
+	cursor: pointer;
+}
+#nav-menu>ul>li>a{
+	color:#ffffff;
+	height:inherit;
+	width:inherit;
+	text-decoration: none;
+}
+#nav-menu>ul>li>a:hover{
+	text-decoration: none;
+	border-bottom: 3px solid #ffffff;
+}
